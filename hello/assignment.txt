@@ -1,0 +1,41 @@
+1)What is Git?
+ A)I will suggest you attempt this question by first telling about the architecture of git as shown in the below diagram just try to explain the diagram by saying:
+
+   Git is a Distributed Version Control system(DVCS). It lets you track changes made to a file and allows you to revert back to any particular change that you wish.
+
+   It is a distributed architecture that provides many advantages over other Version Control Systems (VCS) like SVN. One of the major advantages is that it does not rely on a central      server to store all the versions of a project’s files.
+
+  Instead, every developer “clones” a copy of a repository I have shown in the diagram with “Local repository” and has the full history of the project available on his hard drive. So when there is a server outage all you need to do to recover is one of your teammate’s local Git repository.
+
+  There is a central cloud repository where developers can commit changes and share them with other teammates.
+
+  2) What are the benefits of using Version Control System?
+  A)With the Version Control System(VCS), all the team members are allowed to work freely on any file at any time. VCS gives you the flexibility to merge all the changes into a common     version.
+
+     All the previous versions and variants are neatly packed up inside the VCS. You can request any version at any time as per your requirement and you’ll have a snapshot of the complete project right at hand.
+     
+      Whenever you save a new version of your project, your VCS requires you to provide a short description of the changes that you have made. Additionally, you can see what changes are made in the file’s content. This helps you to know what changes have been made in the project and by whom.
+
+    A distributed VCS like Git allows all the team members to have a complete history of the project so if there is a breakdown in the central server you can use any of your teammate’s local Git repository. 
+
+3)In Git how do you revert a commit that has already been pushed and made public?
+A)There can be two approaches to tackle this question and make sure that you include both because any of the below options can be used depending on the situation:
+
+Remove or fix the bad file in a new commit and then push it to the remote repository. This is the most obvious way to fix an error. Once you have made necessary changes to the file, then commit it to the remote repository using the command: git commit -m “commit message”
+
+Also, you can create a new commit that undoes all changes that were made in the bad commit. To do this use the command
+
+git revert <name of bad commit>
+
+4) How do you find a list of files that have changed in a particular commit?
+A)For this answer instead of just telling the command, explain what exactly this command will do.
+To get a list file that has changed in a particular commit use the below command:
+git diff-tree -r {hash}
+Given the commit hash, this will list all the files that were changed or added in that commit. The -r flag makes the command list individual files, rather than collapsing them into root directory names only.
+You can also include the below-mentioned point, although it is totally optional but will help in impressing the interviewer.
+The output will also include some extra information, which can be easily suppressed by including two flags:
+git diff-tree --no-commit-id --name-only -r {hash}
+Here –no-commit-id will suppress the commit hashes from appearing in the output, and –name-only will only print the file names, instead of their paths.
+
+5) What is a repository in Git?
+A) repository consists of a list named .git, where git holds all of its metadata for the catalog. The content of the .git file is private to Git.
